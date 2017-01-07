@@ -1,0 +1,370 @@
+﻿body
+{
+    background-color: #F1F1F3;
+    font-family: Calibri,Verdana,Arial;
+}
+
+#page
+{
+    margin: 0 auto;
+    width: 1280px;
+}
+
+#PageHead
+{
+    width: 1280px;
+}
+
+    #PageHead #logo
+    {
+        width: 300px;
+        float: left;
+        height: 80px;
+    }
+
+
+    #PageHead #LoginCredentials
+    {
+        text-align: right;
+        height: 50px;
+        padding-top: 30px;
+    }
+
+#mainBody
+{
+    width: 1280px;
+}
+
+    #mainBody #leftPanel
+    {
+        width: 90px;
+        float: left;
+    }
+
+        #mainBody #leftPanel #menu
+        {
+            padding-top: 10px;
+            margin: 15px;
+        }
+
+
+            #mainBody #leftPanel #menu div a img
+            {
+                border: none;
+            }
+
+    #mainBody #centerPanel
+    {
+        width: 880px;
+        float: left;
+    }
+
+        #mainBody #centerPanel .centerData
+        {
+            background-color: #FFFFFF;
+            height: 580px;
+            width: 880px;
+            border: 1px solid #808080;
+        }
+
+            #mainBody #centerPanel .centerData .subMenuStrip
+            {
+                height: 40px;
+                width: 830px;
+                margin: 10px;
+            }
+
+    #mainBody #rightPanel
+    {
+        width: 300px;
+        float: left;
+        margin-left: 10px;
+    }
+
+
+        #mainBody #rightPanel .rightData
+        {
+            background-color: #FFFFFF;
+            height: 465px;
+            border: 1px solid #808080;
+        }
+
+        #mainBody #rightPanel .rightBottomData
+        {
+            margin-top: 10px;
+            height: 100px;
+            border: 1px solid #808080;
+            text-align: center;
+        }
+
+h1
+{
+    font-size: 18pt;
+    color: #bd1919;
+    width: 860px;
+    border-bottom: 1px solid #5c4ddb;
+    margin: 10px;
+}
+
+#subText
+{
+    font-size: 8pt;
+}
+
+#pageLogin
+{
+    margin: 150px auto;
+    width: 100%;
+}
+
+.LoginBanner
+{
+    background-color: #FFFFFF;
+    height: 210px;
+    width: 100%;
+    padding: 20px 0px;
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+}
+
+    .LoginBanner .LoginLogoContent
+    {
+        width: 48%;
+        border-right: 1px solid #808080;
+        text-align: right;
+        height: 210px;
+        padding-right: 20px;
+        float: left;
+    }
+
+        .LoginBanner .LoginLogoContent .logoData
+        {
+            float: right;
+            width: 50%;
+        }
+
+
+    .LoginBanner .LoginContent
+    {
+        width: 48%;
+        height: 180px;
+        padding-left: 20px;
+        float: left;
+    }
+
+        .LoginBanner .LoginContent .loginLabel
+        {
+            padding: 10px 0px;
+        }
+
+
+
+        .LoginBanner .LoginContent .loginFooterLabel
+        {
+            padding-top: 25px;
+        }
+
+
+            .LoginBanner .LoginContent .loginFooterLabel .FooterButton
+            {
+                padding-left: 60px;
+                width: 200px;
+                float: left;
+            }
+
+#LoginFooter
+{
+    height: 90px;
+    width: 40%;
+    text-align: right;
+    padding-left: 60%;
+    font-size: 10pt;
+}
+
+.GridDiv
+{
+    padding-left: 50px;
+}
+
+.TotalContent
+{
+    padding-top: 1%;
+}
+
+    .TotalContent .LabelContent
+    {
+        width: 39%;
+        float: left;
+        padding-left: 11%;
+    }
+
+.InnerContentData
+{
+    padding: 1% 4%;
+    width: 92%;
+}
+
+.hover
+{
+    background-color: skyblue;
+    cursor: pointer;
+}
+
+.textbox
+{
+    border: solid 2px #d6d6d6;
+    width: 150px;
+}
+
+a
+{
+    color: #000000;
+}
+
+.small-button
+{
+    font-size: .8em !important;
+    height: 26px;
+}
+
+.right_textbox
+{
+    border: solid 2px #d6d6d6;
+    text-align: right;
+    width: 150px;
+}
+
+#CustomPageBody
+{
+    background-color: #FFFFFF;
+    height: 500px;
+}
+
+.inner-Content-container
+{
+    overflow: auto;
+    height: 420px;
+}
+
+.right_small_textbox_grid
+{
+    border: solid 2px #d6d6d6;
+    text-align: right;
+    width: 100px;
+}
+
+.small_textbox_grid
+{
+    border: solid 2px #d6d6d6;
+    text-align: right;
+    width: 100px;
+}
+
+.small_normal_textbox_grid
+{
+    border: solid 2px #d6d6d6;
+    text-align: left;
+    width: 100px;
+}
+
+
+.right_estsmall_textbox_grid
+{
+    border: solid 2px #d6d6d6;
+    text-align: right;
+    width: 80px;
+}
+
+.small_estnormal_textbox_grid
+{
+    border: solid 2px #d6d6d6;
+    text-align: left;
+    width: 80px;
+}
+
+.small-splitmenu
+{
+    font-size: .8em !important;
+    height: 26px;
+}
+
+#CPH_Main_gvJobCard tr td a
+{
+    text-decoration: none;
+}
+
+    #CPH_Main_gvJobCard tr td a:hover
+    {
+        text-decoration: underline;
+    }
+
+
+
+
+#CPH_Main_gvJobRunning tr td a
+{
+    text-decoration: none;
+}
+
+    #CPH_Main_gvJobRunning tr td a:hover
+    {
+        text-decoration: underline;
+    }
+
+.SettingsPage ul a
+{
+    text-decoration: none;
+}
+
+    .SettingsPage ul a:hover
+    {
+        text-decoration: underline;
+    }
+
+.SettingsPage ul li
+{
+    list-style: none;
+}
+
+.tdhead
+{
+    font-weight: bold;
+}
+
+.SearchTextBox
+{
+    border: solid 2px #d6d6d6;
+    text-align: left;
+    width: 250px;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+    a:hover
+    {
+        text-decoration: underline;
+    }
+
+.SearchLongTextBox
+{
+    border: solid 2px #d6d6d6;
+    text-align: left;
+    width: 350px;
+}
+
+.divError
+{
+    padding: 0 .7em;
+    width:800px;
+    margin:auto;
+}
+
+.multi_textbox
+{
+    border: solid 2px #d6d6d6;
+    width: 300px;
+    height:150px;
+}

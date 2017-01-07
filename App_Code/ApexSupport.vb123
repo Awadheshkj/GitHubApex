@@ -1,0 +1,139 @@
+﻿Imports Microsoft.VisualBasic
+Imports clsDatabaseHelper
+Imports System.Data
+Imports System.Data.SqlClient
+
+Public Class ApexSupport
+
+    Public Shared Function GettOTALTASKClaimandPrePnlcategorywise(ByVal jc As String) As DataSet
+        Dim sql As String = ""
+
+        sql &= "select * from ("
+        sql &= "select Category,Sum(task)task,Sum(Claimed)Claimed from ("
+        sql &= "select TA.Category,TA.Total Task,(SELECT Sum(CT.amount) FROM APEX_ClaimMaster CM "
+        sql &= "Left join APEX_ClaimTransaction CT on CM.claimmasterID =CT.refClaimID"
+        sql &= "where CM.refTaskID=TA.accountID and isapproved='Y')Claimed from Apex_Taskaccount TA"
+        sql &= "where refjobcardID=" & jc & ")P"
+        sql &= "group by P.Category) A"
+        sql &= ""
+        sql &= "Right join ("
+        sql &= "select Category as Categoryb,Sum(preeventcost)preeventTotal from [dbo].[APEX_PrePnLCost]"
+        sql &= "where refbriefID=(select refbriefID from Apex_jobcard where jobcardID=" & jc & ")"
+        sql &= "group by Category)B on A.Category=B.Categoryb"
+        sql &= ""
+
+        If sql = "" Then Return Nothing
+
+        Try
+            Dim DatasetObject As New DataSet
+            DatasetObject = ExecuteDataSet(sql)
+            Return DatasetObject
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+
+    End Function
+
+
+    Public Shared Function IsclaimValid(ByVal jc As String, ByVal claimamount As Double, ByVal taskID As Integer) As Boolean
+
+
+
+        Dim sql As String = ""
+
+        sql &= "select Category,isnull(task,0)task,isnull(Claimed,0)Claimed,Categoryb,isnull(preeventTotal,0)preeventTotal from ("
+        sql &= " select Category,Sum(task)task,Sum(Claimed)Claimed from ("
+        sql &= " select TA.Category,TA.Total Task,(SELECT Sum(CT.amount) FROM APEX_ClaimMaster CM "
+        sql &= " Left join APEX_ClaimTransaction CT on CM.claimmasterID =CT.refClaimID"
+        sql &= " where CM.refTaskID=TA.accountID and isapproved='Y')Claimed from Apex_Taskaccount TA"
+        sql &= " where refjobcardID=" & jc & ")P"
+        sql &= " group by P.Category) A"
+        sql &= ""
+        sql &= " Right join ("
+        sql &= " select Category as Categoryb,Sum(preeventcost)preeventTotal from [dbo].[APEX_PrePnLCost]"
+        sql &= " where refbriefID=(select refbriefID from Apex_jobcard where jobcardID=" & jc & ")"
+        sql &= " group by Category)B on A.Category=B.Categoryb"
+        sql &= "  where category='" & getCategoryByTaskAccountID(taskID) & "'"
+
+        If sql = "" Then Return Nothing
+
+        Try
+            Dim ds As New DataSet
+            ds = ExecuteDataSet(sql)
+            If ds.Tables(0).Rows.Count > 0 Then
+                If (ds.Tables(0).Rows(0)("preeventTotal") - ds.Tables(0).Rows(0)("Claimed")) >= claimamount Then
+                    Return True
+                Else
+                    Return False
+                End If
+            Else
+                Return False
+            End If
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+
+    End Function
+
+    Private Shared Function getCategoryByTaskAccountID(taskAccountID As Integer) As String
+        Try
+            Dim sql As String = "Select Category from Apex_taskaccount where AccountID=" & taskAccountID
+
+            Return ExecuteSingleResult(sql, _DataType.AlphaNumeric)
+
+        Catch ex As Exception
+
+        End Try
+
+    End Function
+
+
+    Public Shared Function IsclaimValidForIndvisual(ByVal jc As String, ByVal claimamount As Double, ByVal taskID As Integer) As Integer
+
+        Return 0
+
+        Dim sql As String = ""
+
+        sql &= "select Category,isnull(task,0)task,isnull(Claimed,0)Claimed,Categoryb,isnull(preeventTotal,0)preeventTotal from ("
+        sql &= "select Category,Sum(task)task,Sum(Claimed)Claimed from ("
+        sql &= "select TA.Category,TA.Total Task,(SELECT Sum(CT.amount) FROM APEX_ClaimMaster CM "
+        sql &= "Left join APEX_ClaimTransaction CT on CM.claimmasterID =CT.refClaimID"
+        sql &= "where CM.refTaskID=TA.accountID)Claimed from Apex_Taskaccount TA"
+        sql &= "where refjobcardID=" & jc & ")P"
+        sql &= "group by P.Category) A"
+        sql &= ""
+        sql &= "Right join ("
+        sql &= "select Category as Categoryb,Sum(preeventcost)preeventTotal from [dbo].[APEX_PrePnLCost]"
+        sql &= "where refbriefID=(select refbriefID from Apex_jobcard where jobcardID=" & jc & ")"
+        sql &= "group by Category)B on A.Category=B.Categoryb"
+        sql &= " where category='" & getCategoryByTaskAccountID(taskID) & "'"
+
+        If sql = "" Then Return Nothing
+
+        Try
+            Dim ds As New DataSet
+            ds = ExecuteDataSet(sql)
+            If ds.Tables(0).Rows.Count > 0 Then
+                If (ds.Tables(0).Rows(0)("preeventTotal") - ds.Tables(0).Rows(0)("Claimed")) >= claimamount Then
+
+                    Return 1
+                Else
+
+                    If (ds.Tables(0).Rows(0)("preeventTotal") - ds.Tables(0).Rows(0)("Claimed")) >= claimamount Then
+
+                    End If
+
+                    Return True
+                End If
+
+            End If
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+
+    End Function
+
+End Class

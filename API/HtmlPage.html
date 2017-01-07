@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <form method="post" action="Login.aspx">
+        <input type="text" name="U" id="U" /><br />
+        <input type="text" name="P" id="P" />
+        <input type="submit" id="submit" value="Submit" />
+    </form>
+    <div>---------------------------------------------------<br />
+    Forgot Password <br />
+        ---------------------------------------------------<br />
+    </div>
+    <form method="post" action="forgotpassword.aspx">
+        <input type="text" name="F" id="F" /><br />
+        <input type="submit" id="submit" value="Submit" />
+    </form>
+    <div>
+        ---------------------------------------------------<br />
+        Projects <br />
+        ---------------------------------------------------<br />
+    </div>
+    <form method="post" action="Projects.aspx">
+        <input type="text" name="PTYPE" id="PTYPE" />(value = Pending, Completed)<br />
+        <input type="submit" id="submit" value="Submit" />
+    </form>
+    <div>
+        ---------------------------------------------------<br />
+        Project Details<br />
+        ---------------------------------------------------<br />
+    </div>
+    <form method="post" action="ProjectsDetails.aspx">
+        <input type="text" name="JID" id="JID" /><br />
+        <input type="submit" id="submit" value="Submit" />
+    </form>
+    <div>
+        ---------------------------------------------------<br />
+        Project Brief<br />
+        ---------------------------------------------------<br />
+    </div>
+    <form method="post" action="ProjectBrief.aspx">
+        <input type="text" name="JID" id="JID" /><br />
+        <input type="submit" id="submit" value="Submit" />
+    </form>
+    <div>
+        ---------------------------------------------------<br />
+        Task Details<br />
+        ---------------------------------------------------<br />
+    </div>
+    <form method="post" action="TaskDetails.aspx">
+        <input type="text" name="JID" id="JID" /><br />
+        <input type="submit" id="submit" value="Submit" />
+    </form>
+    <div>
+        ---------------------------------------------------<br />
+        News<br />
+        ---------------------------------------------------<br />
+    </div>
+    <form method="post" action="News.aspx">
+        <input type="text" name="TYPE" id="TYPE" />(values = Internal, External)<br />
+        <input type="submit" id="submit" value="Submit" />
+    </form>
+    <div>
+        ---------------------------------------------------<br />
+        News Details<br />
+        ---------------------------------------------------<br />
+    </div>
+    <form method="post" action="NewsDetails.aspx">
+        <input type="text" name="NID" id="NID" /><br />
+        <input type="text" name="TYPE" id="TYPE" />(values = Internal, External)<br />
+        <input type="submit" id="submit" value="Submit" />
+    </form>
+</body>
+</html>

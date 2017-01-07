@@ -1,0 +1,25 @@
+﻿<%@ Master Language="VB" MasterPageFile="~/Apex.master" AutoEventWireup="false" CodeFile="ClaimInner.master.vb" Inherits="ClaimInner" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="col-lg-12">
+        <div class="col-lg-12 btn btn-group">
+            <a id="btnCreateTask" class="btn btn-primary"><i class="fa fa-2x fa-plus-square"></i>&nbsp;<h4>Create Task</h4></a>
+            <a id="btnTaskList" class="btn btn-primary"><i class="fa fa-2x fa-tasks"></i>&nbsp;<h4>Task List</h4></a>
+            <a id="btnPrePnl" class="btn btn-primary"><i class="fa fa-2x fa-inr"></i>&nbsp;<h4>Pre PnL</h4></a>
+            <a id="btnPostPnl" class="btn btn-primary"><i class="fa fa-2x fa-inr"></i>&nbsp;<h4>Post PnL</h4></a>
+            <a id="btnColletrals" class="btn btn-primary"><i class="fa fa-2x fa-photo"></i>&nbsp;<h4>Colletrals</h4></a>
+            <a id="btnClaimSummary" class="btn btn-primary"><i class="fa fa-2x fa-list-alt"></i>&nbsp;<h4>Claim Summary</h4></a>
+            <a id="btnClaimReport" class="btn btn-primary"><i class="fa fa-2x fa-files-o"></i>&nbsp;<h4>Claim Report</h4></a>
+        </div>
+    </div>
+    
+    <asp:ContentPlaceHolder ID="ClaimInnerHolder" runat="server">
+    </asp:ContentPlaceHolder>
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cpFooter" runat="Server">
+    
+</asp:Content>
+

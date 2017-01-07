@@ -1,0 +1,46 @@
+﻿<%@ Master Language="VB" MasterPageFile="~/KestoneMaster.master" AutoEventWireup="false" CodeFile="settingmaster.master.vb" Inherits="Settings_settingmaster" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+
+    <script src="../js/jquery.js"></script>
+
+     <asp:ContentPlaceHolder ID="cph_head" runat="server" >
+      
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cpContent" Runat="Server">
+    <div class="col-3" >
+        <div class="panel">
+         <ul class="nav nav-tabs nav-stacked">
+                <li><a href="Activity.aspx" >Activity</a></li>
+                <li><a href="Category.aspx">Category</a></li>
+                <li><a href="SubCategory.aspx">SubCategory</a></li>
+                <li><a href="State.aspx" >State</a></li>
+                <li><a href="City.aspx">City</a></li>
+                <li><a href="Designation.aspx" >Designation</a></li>
+                <li><a href="ClientContact.aspx" >Client Contact</a></li>
+                <li><a href="VendorCategory.aspx" >Vendor Category</a></li>
+                <li><a href="Vendor.aspx">Vendor</a></li>
+                <li><a href="VendorContact.aspx" >Vendor Contact</a></li>
+               
+            </ul>
+            </div>
+    </div>
+    <div class="col-9" >
+     <asp:ContentPlaceHolder ID="cph_content" runat="server" >
+
+    </asp:ContentPlaceHolder>
+        </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="cpFooter" Runat="Server">
+    <script>
+        $(document).ready(function () { 
+        $("#logo").attr("src", "../Images/KestoneLoginIcon.jpg")
+        })
+    </script>
+
+     <asp:ContentPlaceHolder ID="cph_footer" runat="server" >
+
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
